@@ -18,3 +18,9 @@ export function pluralize(string, num) {
 export function isNewShoe(releaseDate) {
   return differenceInDays(new Date(), releaseDate) < 30;
 }
+
+const DEFAULT_FONT_SIZE = 16;
+
+export function convertPxToRem(px) {
+  return px / DEFAULT_FONT_SIZE;
+}

@@ -1,3 +1,5 @@
+import { convertPxToRem } from './utils';
+
 export const COLORS = {
   white: 'hsl(0deg 0% 100%)',
   gray: {
@@ -17,13 +19,14 @@ export const WEIGHTS = {
   bold: 800
 };
 
-// values are expressed in rems
 export const BREAKPOINTS = {
-  tabletMax: 59.375, // 950px
-  mobileMax: 37.5 // 600px;
+  phone: 600,
+  tablet: 950,
+  laptop: 1300
 };
 
 export const SCREEN_MEDIA_QUERIES = {
-  tableAndBelow: `(max-width: ${BREAKPOINTS.tabletMax}rem)`,
-  mobileAndBelow: `(max-width: ${BREAKPOINTS.mobileMax}rem)`
+  mobileAndSmaller: `(max-width: ${convertPxToRem(BREAKPOINTS.phone)}rem)`,
+  tabletAndSmaller: `(max-width: ${convertPxToRem(BREAKPOINTS.tablet)}rem)`,
+  laptopAndSmaller: `(max-width: ${convertPxToRem(BREAKPOINTS.laptop)}rem)`
 };
