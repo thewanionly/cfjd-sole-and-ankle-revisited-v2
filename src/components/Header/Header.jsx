@@ -51,6 +51,16 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
+    align-items: center;
+    height: 68px;
+    padding: 16px 32px;
+  }
+
+  @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
+    padding: 16px 16px;
+  }
 `;
 
 const TopLine = styled.div`
