@@ -18,7 +18,6 @@ const Header = () => {
   return (
     <header>
       <SuperHeader />
-      <TopLine />
       <MainHeader>
         <Side>
           <Logo />
@@ -56,21 +55,11 @@ const MainHeader = styled.div`
     align-items: center;
     height: 68px;
     padding: 16px 32px;
+    border-top: 4px solid ${COLORS.gray[900]};
   }
 
   @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
     padding: 16px 16px;
-  }
-`;
-
-const TopLine = styled.div`
-  display: none;
-
-  @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
-    display: revert;
-
-    background-color: ${COLORS.gray[900]};
-    height: 4px;
   }
 `;
 
