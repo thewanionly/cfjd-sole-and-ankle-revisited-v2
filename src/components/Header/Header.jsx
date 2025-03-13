@@ -6,6 +6,8 @@ import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -19,23 +21,32 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
-        <Nav>
+        </LogoWrapper>
+        <DesktopNav>
           <NavLink href='/sale'>Sale</NavLink>
           <NavLink href='/new'>New&nbsp;Releases</NavLink>
           <NavLink href='/men'>Men</NavLink>
           <NavLink href='/women'>Women</NavLink>
           <NavLink href='/kids'>Kids</NavLink>
           <NavLink href='/collections'>Collections</NavLink>
-        </Nav>
-        <Side />
-        <HeaderIcons>
-          <Icon id='shopping-bag' />
-          <Icon id='search' />
-          <Icon id='menu' />
-        </HeaderIcons>
+        </DesktopNav>
+        <MobileActions>
+          <ShoppingBagButton>
+            <Icon id='shopping-bag' />
+            <VisuallyHidden>Open cart</VisuallyHidden>
+          </ShoppingBagButton>
+          <UnstyledButton>
+            <Icon id='search' />
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id='menu' />
+            <VisuallyHidden>Open menu</VisuallyHidden>
+          </UnstyledButton>
+        </MobileActions>
+        <Filler />
       </MainHeader>
 
       <MobileMenu isOpen={showMobileMenu} onDismiss={() => setShowMobileMenu(false)} />
@@ -52,18 +63,20 @@ const MainHeader = styled.div`
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
+    border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
     align-items: center;
     height: 68px;
-    padding: 16px 32px;
-    border-top: 4px solid ${COLORS.gray[900]};
+    padding: 16px 29px 16px 32px;
   }
 
   @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
-    padding: 16px 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
@@ -73,8 +86,20 @@ const Nav = styled.nav`
   }
 `;
 
-const Side = styled.div`
+const LogoWrapper = styled.div`
   flex: 1;
+
+  @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
+    flex: revert;
+  }
+`;
+
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `;
 
 const NavLink = styled.a`
@@ -89,7 +114,7 @@ const NavLink = styled.a`
   }
 `;
 
-const HeaderIcons = styled.div`
+const MobileActions = styled.div`
   display: none;
 
   @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
@@ -98,8 +123,17 @@ const HeaderIcons = styled.div`
   }
 
   @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
-    display: flex;
     gap: 16px;
+  }
+`;
+
+const ShoppingBagButton = styled(UnstyledButton)`
+  @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
+    transform: translateX(-2px);
+  }
+
+  @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
+    transform: translateX(-1px);
   }
 `;
 
