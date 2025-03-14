@@ -9,9 +9,9 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
-const ShoeBreadcrumbs = ({ className }) => {
+const ShoeBreadcrumbs = () => {
   return (
-    <Breadcrumbs className={className}>
+    <Breadcrumbs>
       <Breadcrumbs.Crumb href='/'>Home</Breadcrumbs.Crumb>
       <Breadcrumbs.Crumb href='/sale'>Sale</Breadcrumbs.Crumb>
       <Breadcrumbs.Crumb href='/sale/shoes'>Shoes</Breadcrumbs.Crumb>
@@ -25,19 +25,25 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <RightHeader>
-            <MobileShoeBreadcrumbs />
+            <MobileShoeBreadcrumbs>
+              <ShoeBreadcrumbs />
+            </MobileShoeBreadcrumbs>
             <Title>Running</Title>
           </RightHeader>
-          <ShoeSelect label='Sort' value={sortId} onChange={(ev) => setSortId(ev.target.value)}>
-            <option value='newest'>Newest Releases</option>
-            <option value='price'>Price</option>
+          <ShoeSelect>
+            <Select label='Sort' value={sortId} onChange={(ev) => setSortId(ev.target.value)}>
+              <option value='newest'>Newest Releases</option>
+              <option value='price'>Price</option>
+            </Select>
           </ShoeSelect>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <DesktopShoeBreadcrumbs />
+        <DesktopShoeBreadcrumbs>
+          <ShoeBreadcrumbs />
+        </DesktopShoeBreadcrumbs>
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
@@ -60,13 +66,13 @@ const LeftColumn = styled.div`
   }
 `;
 
-const DesktopShoeBreadcrumbs = styled(ShoeBreadcrumbs)`
+const DesktopShoeBreadcrumbs = styled.div`
   @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;
 
-const MobileShoeBreadcrumbs = styled(ShoeBreadcrumbs)`
+const MobileShoeBreadcrumbs = styled.div`
   display: none;
 
   @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
@@ -94,7 +100,7 @@ const RightHeader = styled.div`
   gap: 8px;
 `;
 
-const ShoeSelect = styled(Select)`
+const ShoeSelect = styled.div`
   @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
     display: none;
   }
