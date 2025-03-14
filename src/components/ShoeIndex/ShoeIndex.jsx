@@ -28,10 +28,10 @@ const ShoeIndex = ({ sortId, setSortId }) => {
             <MobileShoeBreadcrumbs />
             <Title>Running</Title>
           </RightHeader>
-          <Select label='Sort' value={sortId} onChange={(ev) => setSortId(ev.target.value)}>
+          <ShoeSelect label='Sort' value={sortId} onChange={(ev) => setSortId(ev.target.value)}>
             <option value='newest'>Newest Releases</option>
             <option value='price'>Price</option>
-          </Select>
+          </ShoeSelect>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -82,12 +82,22 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
+    align-items: flex-end;
+  }
 `;
 
 const RightHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+`;
+
+const ShoeSelect = styled(Select)`
+  @media ${SCREEN_MEDIA_QUERIES.mobileAndSmaller} {
+    display: none;
+  }
 `;
 
 const Title = styled.h2`
