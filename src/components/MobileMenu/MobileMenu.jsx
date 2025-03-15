@@ -57,7 +57,7 @@ const Content = styled(Dialog.Content)`
   position: fixed;
   top: 0;
   right: 0;
-  background-color: ${COLORS.white};
+  background-color: var(--color-white);
 
   width: max(min(300px, 80vw), 200px);
   height: 100%;
@@ -86,13 +86,13 @@ const MobileNav = styled.nav`
 const MobileNavLink = styled.a`
   font-size: 1.125rem;
   line-height: normal;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weight-medium);
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
@@ -108,7 +108,7 @@ const FooterLink = styled.a`
   font-size: 0.875rem;
   line-height: normal;
   text-decoration: none;
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
 `;
 
 export default MobileMenu;

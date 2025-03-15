@@ -54,11 +54,11 @@ const MainHeader = styled.div`
   gap: 16px;
   align-items: baseline;
   padding: 21px 32px 23px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray-300);
   overflow-x: auto;
 
   @media ${SCREEN_MEDIA_QUERIES.tabletAndSmaller} {
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--color-gray-900);
     justify-content: space-between;
     align-items: center;
     height: 68px;
@@ -101,11 +101,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--color-gray-900);
+  font-weight: var(--weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
