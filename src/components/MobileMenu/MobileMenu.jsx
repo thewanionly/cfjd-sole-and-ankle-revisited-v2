@@ -6,7 +6,7 @@ import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 import * as Dialog from '@radix-ui/react-dialog';
 
-import { SCREEN_MEDIA_QUERIES, COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
@@ -19,6 +19,8 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
             <Icon id='close' />
             <VisuallyHidden>Dismiss menu</VisuallyHidden>
           </CloseButton>
+
+          <Filler />
 
           <VisuallyHidden>
             <Dialog.Title>Mobile navigation</Dialog.Title>
@@ -61,14 +63,18 @@ const Content = styled(Dialog.Content)`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 32px;
 `;
 
 const CloseButton = styled(UnstyledButton)`
-  align-self: flex-end;
-  margin-top: -6px;
-  margin-right: -16px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  padding: 16px;
+`;
+
+const Filler = styled.div`
+  flex: 1;
 `;
 
 const MobileNav = styled.nav`
@@ -79,6 +85,7 @@ const MobileNav = styled.nav`
 
 const MobileNavLink = styled.a`
   font-size: 1.125rem;
+  line-height: normal;
   font-weight: ${WEIGHTS.medium};
   text-transform: uppercase;
   text-decoration: none;
@@ -90,13 +97,16 @@ const MobileNavLink = styled.a`
 `;
 
 const Footer = styled.footer`
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 14px;
 `;
 
 const FooterLink = styled.a`
-  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: normal;
   text-decoration: none;
   color: ${COLORS.gray[700]};
 `;
