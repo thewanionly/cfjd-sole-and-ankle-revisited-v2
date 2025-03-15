@@ -4,7 +4,7 @@ import { WEIGHTS } from '../../constants';
 
 const Logo = (props) => {
   return (
-    <Link href="/">
+    <Link href='/'>
       <Wrapper {...props}>Sole&amp;Ankle</Wrapper>
     </Link>
   );
@@ -17,6 +17,7 @@ const Link = styled.a`
 
 const Wrapper = styled.h1`
   font-size: 1.5rem;
+  line-height: normal;
   font-weight: ${WEIGHTS.bold};
 `;
 
