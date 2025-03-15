@@ -6,8 +6,6 @@ import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 import * as Dialog from '@radix-ui/react-dialog';
 
-import { COLORS, WEIGHTS } from '../../constants';
-
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Dialog.Root open={isOpen} onOpenChange={onDismiss}>
@@ -50,7 +48,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 const Overlay = styled(Dialog.Overlay)`
   position: fixed;
   inset: 0;
-  background-color: hsl(220deg 5% 40% / 0.8);
+  background-color: var(--color-backdrop);
 `;
 
 const Content = styled(Dialog.Content)`

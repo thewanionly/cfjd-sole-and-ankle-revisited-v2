@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, WEIGHTS } from '../../constants';
-
 import Icon from '../Icon';
 
 const Select = ({ label, value, children, ...delegated }) => {
